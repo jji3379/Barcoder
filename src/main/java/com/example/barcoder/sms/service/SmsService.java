@@ -58,7 +58,7 @@ public class SmsService {
                 .withDataType("String"));
 
         int authCode = generateAuth();
-        String message = "[Toyou] verification : " + authCode;
+        String message = "[Barcoder] verification : " + authCode;
 
         snsClient.publish(new PublishRequest()
                 .withMessage(message)
