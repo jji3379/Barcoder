@@ -5,6 +5,10 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  # 레디스 테스트는 AWS 서버에서! (VPC 때문에)
+  redis:
+    host: merlins-cache-01.xwyodt.ng.0001.apne1.cache.amazonaws.com
+    port: 6379
 
 jwt:
   secret: 9cbb3605dd40d39e01f1d182b071a160b41c6a5fa4f1c0ef665821545435b28a0159bd6f446d45fe9d58732b93abc2ff73f152b1cfba04f3ecb5549206c79922

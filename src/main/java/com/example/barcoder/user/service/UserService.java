@@ -11,6 +11,7 @@ import com.example.barcoder.user.dto.*;
 import com.example.barcoder.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,7 +20,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Transactional(readOnly = true)
@@ -30,6 +30,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final TokenProvider tokenProvider;
     private final UserRepository userRepository;
+    private final RedisTemplate redisTemplate;
 
     @Transactional
     public Long registerUser(RegisterUserReq registerUserReq) {
@@ -80,6 +81,10 @@ public class UserService {
         Authentication auth = new UsernamePasswordAuthenticationToken(user.getUsername(),"", user.getAuthorities());
         TokenDto token = tokenProvider.generateTokenDto(auth);
 
+        // Refresh Token Redis에 저장
+        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
+        valueOperations.set(user.getId().toString(), token.getRefreshToken());
+
         return LoginRes.builder()
                 .accessToken(token.getAccessToken())
                 .refreshToken(token.getRefreshToken())
@@ -105,11 +110,36 @@ public class UserService {
             throw new CustomException(BaseCode.INVALID_REFRESH_TOKEN);
         }
 
+        // 레디스에서 리프레쉬 토큰 가져오기
+        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
+        String refreshToken = valueOperations.get(user.getId().toString());
+
+        if (!tokenReq.getRefreshToken().equals(refreshToken)) {
+            throw new CustomException(BaseCode.INVALID_REFRESH_TOKEN);
+        }
+
         // 새로운 토큰 생성
         Authentication auth = new UsernamePasswordAuthenticationToken(user.getUsername(),"", user.getAuthorities());
         TokenDto tokenDto = tokenProvider.generateTokenDto(auth);
 
+        // 저장소 정보 업데이트
+        valueOperations.set(user.getId().toString(), tokenDto.getRefreshToken());
+
         return tokenDto;
+    }
+
+    public String redisTest(TokenReq tokenReq) {
+        //Access Token 추출
+        Authentication authentication = tokenProvider.getAuthentication(tokenReq.getAccessToken());
+
+        User user = userRepository.findByUsername(authentication.getName())
+                .orElseThrow(() -> new CustomException(BaseCode.UNSIGN_USERNAME_OR_PHONE));
+
+        // 레디스에서 리프레쉬 토큰 가져오기
+        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
+        String refreshToken = valueOperations.get(user.getId().toString());
+
+        return refreshToken;
     }
 
     /*
