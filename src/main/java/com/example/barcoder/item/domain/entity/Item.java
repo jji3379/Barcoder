@@ -1,8 +1,17 @@
-package com.example.barcoder.item;
+package com.example.barcoder.item.domain.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "item", schema = "barcoder")
 public class Item {
     @Id
