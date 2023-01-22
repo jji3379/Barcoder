@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -49,15 +48,14 @@ public class SecurityConfig {
 
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
-                .antMatchers("/api/v1/users/login").permitAll()
-                .antMatchers("/api/v1/users/password").permitAll()
-                .antMatchers("/api/v1/users/{loginId}/exists").permitAll()
-                .antMatchers("/api/v1/users/token").permitAll()
-                .antMatchers("/api/v1/users/test").permitAll()
-                .antMatchers("/api/v1/send-sms").permitAll()
-                .antMatchers("/api/v1/country-code").permitAll()
-                .antMatchers("/api/**").hasRole("USER")
+//                .antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
+//                .antMatchers("/api/v1/users/login").permitAll()
+//                .antMatchers("/api/v1/users/password").permitAll()
+//                .antMatchers("/api/v1/users/{loginId}/exists").permitAll()
+//                .antMatchers("/api/v1/users/token").permitAll()
+//                .antMatchers("/api/v1/users/test").permitAll()
+//                .antMatchers("/api/v1/send-sms").permitAll()
+//                .antMatchers("/api/**").hasRole("USER")
                 .anyRequest().permitAll()
 
                 .and()
