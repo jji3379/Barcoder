@@ -29,8 +29,8 @@ public class ScanController {
      * 스캔한 목록
      */
     @GetMapping("/{userId}")
-    public List<ScanListRes> getScanItemList(@PathVariable Long userId) {
+    public ResponseEntity<List<ScanListRes>> getScanItemList(@PathVariable Long userId) {
 
-        return scanService.getScanItemList(userId);
+        return ResponseEntity.ok(scanService.getScanItemList(userId));
     }
 }
