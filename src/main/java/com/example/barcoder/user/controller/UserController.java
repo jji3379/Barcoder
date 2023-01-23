@@ -86,11 +86,5 @@ public class UserController {
 
         return ResponseEntity.ok(userService.reissueToken(tokenReq));
     }
-
-    @PostMapping("/test")
-    public ResponseEntity<String> redisTest(@RequestBody TokenReq tokenReq) {
-
-        return ResponseEntity.ok(userService.redisTest(tokenReq));
-    }
 }
 
