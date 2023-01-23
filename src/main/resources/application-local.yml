@@ -1,7 +1,7 @@
 #local
 spring:
   datasource:
-    url: jdbc:mariadb://barcoder.ckvu6z6e9nqy.ap-northeast-2.rds.amazonaws.com:3306/barcoder?serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
+    url: jdbc:mariadb://barcoder.cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder?serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
     username: merlin
     password: merlinbarcoder
     driver-class-name: org.mariadb.jdbc.Driver
