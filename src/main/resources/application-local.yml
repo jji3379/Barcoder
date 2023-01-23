@@ -20,7 +20,9 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
-
+server:
+  tomcat:
+    max-threads: 300
 
 cloud:
   aws:
