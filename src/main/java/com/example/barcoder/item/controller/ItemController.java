@@ -5,6 +5,7 @@ import com.example.barcoder.item.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,9 +29,9 @@ public class ItemController {
     /**
      * 검색 조회
      */
-    @GetMapping("/search")
-    public ResponseEntity<List<ItemRes>> getSearchItemList() {
+    @GetMapping("/search/{condition}")
+    public ResponseEntity<List<ItemRes>> getSearchItemList(@PathVariable String condition) {
 
-        return ResponseEntity.ok(itemService.getSearchItemList());
+        return ResponseEntity.ok(itemService.getSearchItemList(condition));
     }
 }

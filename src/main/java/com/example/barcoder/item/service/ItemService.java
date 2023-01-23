@@ -27,8 +27,9 @@ public class ItemService {
     /**
      * 검색 조회
      */
-    public List<ItemRes> getSearchItemList() {
+    public List<ItemRes> getSearchItemList(String condition) {
 
-        return null;
+        return itemRepository.findTop12ByBrandNameContainingIgnoreCaseOrItemNameContainingIgnoreCaseOrderByScanCountDesc(condition, condition)
+                .stream().map(item -> ItemRes.toRes(item)).collect(Collectors.toList());
     }
 }

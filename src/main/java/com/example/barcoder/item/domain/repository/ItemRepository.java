@@ -11,5 +11,7 @@ import java.util.Optional;
 public interface ItemRepository extends JpaRepository<Item, Long> {
     List<Item> findTop12ByOrderByScanCountDesc();
 
+    List<Item> findTop12ByBrandNameContainingIgnoreCaseOrItemNameContainingIgnoreCaseOrderByScanCountDesc(String brandName, String itemName);
+
     Optional<Item> findByBarcodeNumber(String barcodeNumber);
 }
