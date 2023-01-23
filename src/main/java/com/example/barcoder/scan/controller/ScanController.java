@@ -1,11 +1,14 @@
 package com.example.barcoder.scan.controller;
 
+import com.example.barcoder.scan.dto.ScanListRes;
 import com.example.barcoder.scan.dto.ScanReq;
 import com.example.barcoder.scan.dto.ScanRes;
 import com.example.barcoder.scan.service.ScanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,8 +28,9 @@ public class ScanController {
     /**
      * 스캔한 목록
      */
-    @GetMapping("/scan")
-    public void getScanItemList() {
-        scanService.getScanItemList();
+    @GetMapping("/{userId}")
+    public List<ScanListRes> getScanItemList(@PathVariable Long userId) {
+
+        return scanService.getScanItemList(userId);
     }
 }
