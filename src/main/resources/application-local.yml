@@ -5,9 +5,9 @@ spring:
     username: merlin
     password: merlinbarcoder
     driver-class-name: org.mariadb.jdbc.Driver
-    hikari:
-      minimum-idle: 50
-      maximumPoolSize: 200
+      hikari:
+        minimum-idle: 50
+        maximumPoolSize: 200
   jpa:
     hibernate:
       ddl-auto: update
