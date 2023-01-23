@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ItemRes {
     private long id;
+    private String brandName;
     private String itemName;
     private String itemPrice;
     private String itemImage;
@@ -17,8 +18,9 @@ public class ItemRes {
     private String barcodeNumber;
 
     @Builder
-    public ItemRes(long id, String itemName, String itemPrice, String itemImage, String marketUrl, int scanCount, String barcodeNumber) {
+    public ItemRes(long id, String brandName, String itemName, String itemPrice, String itemImage, String marketUrl, int scanCount, String barcodeNumber) {
         this.id = id;
+        this.brandName = brandName;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemImage = itemImage;
@@ -30,6 +32,7 @@ public class ItemRes {
     public static ItemRes toRes(Item item) {
         return ItemRes.builder()
                 .id(item.getId())
+                .brandName(item.getBrandName())
                 .itemName(item.getItemName())
                 .itemPrice(item.getItemPrice())
                 .itemImage(item.getItemImage())

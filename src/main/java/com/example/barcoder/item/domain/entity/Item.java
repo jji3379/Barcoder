@@ -19,7 +19,10 @@ public class Item extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private long id;
-    
+
+    @Column(name = "brand_name")
+    private String brandName;
+
     @Column(name = "item_name", nullable = true, length = 500)
     private String itemName;
     
@@ -31,7 +34,6 @@ public class Item extends BaseEntity {
     
     @Column(name = "market_url", nullable = true, length = 500)
     private String marketUrl;
-    
     @Column(name = "scan_count", nullable = false)
     private int scanCount;
     

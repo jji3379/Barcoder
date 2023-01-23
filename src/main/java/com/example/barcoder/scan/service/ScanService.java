@@ -48,7 +48,7 @@ public class ScanService {
      */
     public List<ScanListRes> getScanItemList(Long userId) {
         List<ScanListRes> scanList = jpaQueryFactory.select(Projections.fields(ScanListRes.class,
-                        item.id.as("itemId"),
+                        item.id.as("itemId"), item.brandName,
                         item.barcodeNumber, item.itemName,
                         item.itemPrice, item.itemImage,
                         item.marketUrl, item.scanCount,

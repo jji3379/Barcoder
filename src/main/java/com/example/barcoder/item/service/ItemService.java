@@ -27,7 +27,8 @@ public class ItemService {
     /**
      * 검색 조회
      */
-    public void getSearchItemList() {
+    public List<ItemRes> getSearchItemList() {
 
+        return null;
     }
 }

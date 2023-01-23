@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class ScanListRes {
     private Long itemId;
     private String barcodeNumber;
+    private String brandName;
     private String itemName;
     private String itemPrice;
     private String itemImage;
