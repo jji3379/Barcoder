@@ -1,6 +1,7 @@
 package com.example.barcoder.user.domain.entity;
 
 import com.example.barcoder.common.BaseEntity;
+import com.example.barcoder.scan.domain.entity.Scan;
 import lombok.*;
 import org.hibernate.annotations.Where;
 import org.springframework.security.core.GrantedAuthority;
@@ -58,6 +59,9 @@ public class User extends BaseEntity implements UserDetails {
     @Builder.Default
     private List<String> roles = new ArrayList<>();
 
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    public List<Scan> scanList = new ArrayList<>();
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.roles.stream()
@@ -114,20 +118,6 @@ public class User extends BaseEntity implements UserDetails {
      * */
     public void changeUsername(String username) {
         this.username = username;
-    }
-
-    /**
-     * 비회원 유저 등록
-     */
-    public static User createInitUser(String phoneNumber, String encodePassword) {
-        return User.builder()
-                .username(phoneNumber+"-init")
-                .phoneNumber(phoneNumber)
-                .name("init")
-                .password(encodePassword)
-                .email("init@merlinsbeard.com")
-                .birthDate(LocalDate.now())
-                .build();
     }
 
     public User(Long userId) {

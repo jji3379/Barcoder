@@ -31,32 +31,9 @@ public enum BaseCode {
     NOT_FOUND_USER(400,"U008", "유저를 찾지 못했습니다."),
 
     /**
-     * File
+     * 제품
      */
-    FAILED_FILE_UPLOAD(500, "F001", "파일 업로드에 실패하였습니다."),
-    INVALID_FILE_TYPE(500, "F002", "잘못된 형식의 파일입니다."),
-    NOT_FOUND_FILE(400, "F003", "파일을 찾을 수 없습니다."),
-
-    /**
-     * PostImage
-     */
-    NOT_FOUND_POST(400, "P001", "피드를 찾을 수 없습니다."),
-    NOT_FOUND_POSTUSER(400, "P002", "피드를 받은 사람이 존재하지 않습니다."),
-
-    /*
-    * Comment
-    * */
-    NOT_FOUND_COMMENT(400, "C001", "댓글을 찾을 수 없습니다."),
-
-    /*
-     * Reply
-     * */
-    NOT_FOUND_REPLY(400, "R001", "답글를 찾을 수 없습니다."),
-
-    /*
-     * Reply
-     * */
-    NOT_FOUND_FOLLOW(400, "R001", "followId를 찾을 수 없습니다."),
+    NOT_FOUNT_BARCODE(400, "I001", "존재하지 않는 바코드입니다.")
     ;
 
     private final String code;

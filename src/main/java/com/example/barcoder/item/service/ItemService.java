@@ -25,21 +25,6 @@ public class ItemService {
     }
 
     /**
-     * 스캔
-     */
-    public void saveScanBarcode() {
-
-    }
-
-    /**
-     * 스캔한 목록
-     */
-    public void getScanItemList() {
-
-    }
-
-
-    /**
      * 검색 조회
      */
     public void getSearchItemList() {

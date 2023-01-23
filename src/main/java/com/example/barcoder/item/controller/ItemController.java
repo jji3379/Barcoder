@@ -4,7 +4,6 @@ import com.example.barcoder.item.dto.ItemRes;
 import com.example.barcoder.item.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,22 +22,6 @@ public class ItemController {
     public List<ItemRes> getTopItemList() {
 
         return itemService.getTopItemList();
-    }
-
-    /**
-     * 스캔
-     */
-    @PostMapping("/scan")
-    public void saveScanBarcode() {
-        itemService.saveScanBarcode();
-    }
-
-    /**
-     * 스캔한 목록
-     */
-    @GetMapping("/scan")
-    public void getScanItemList() {
-        itemService.getScanItemList();
     }
 
     /**

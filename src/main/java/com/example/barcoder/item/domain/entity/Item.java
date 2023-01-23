@@ -1,5 +1,6 @@
 package com.example.barcoder.item.domain.entity;
 
+import com.example.barcoder.common.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,8 +13,8 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "item", schema = "barcoder")
-public class Item {
+@Table(name = "item")
+public class Item extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -36,4 +37,12 @@ public class Item {
     
     @Column(name = "barcode_number", nullable = true, length = 500)
     private String barcodeNumber;
+
+    public Item(Long itemId) {
+        this.id = itemId;
+    }
+
+    public void incrScanCount() {
+        this.scanCount += 1;
+    }
 }
