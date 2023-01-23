@@ -43,8 +43,9 @@ dependencies {
 
     //DB
     runtimeOnly 'com.h2database:h2'
-    compile("org.mariadb.jdbc:mariadb-java-client")
+    runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
 
     //swagger
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
