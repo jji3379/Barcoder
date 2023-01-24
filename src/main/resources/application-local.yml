@@ -1,7 +1,7 @@
 #local
 spring:
   datasource:
-    replication:
+#    replication:
 #      driver-class-name: com.mysql.cj.jdbc.Driver
 #      username: merlin
 #      password: merlins22!
