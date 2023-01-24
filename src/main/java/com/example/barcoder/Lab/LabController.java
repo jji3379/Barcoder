@@ -15,7 +15,6 @@ public class LabController {
 
     @GetMapping("/jmeter/{id}")
     public Long getItem(@PathVariable Long id) {
-
         return jpaQueryFactory.select(item.id)
                 .from(item)
                 .where(item.id.eq(id))
