@@ -2,19 +2,19 @@
 spring:
   datasource:
     replication:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      username: merlin
-      password: merlins22!
-      write:
-        name: write
-        url: jdbc:mysql://barcoder.cluster-cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder
-      reads:
-        - name: read1
-          url: jdbc:mysql://barcoder.cluster-ro-cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder
-#    url: jdbc:mariadb://barcoder.cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder?serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
-#    username: merlin
-#    password: merlinbarcoder
-#    driver-class-name: org.mariadb.jdbc.Driver
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      username: merlin
+#      password: merlins22!
+#      write:
+#        name: write
+#        url: jdbc:mysql://barcoder.cluster-cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder
+#      reads:
+#        - name: read1
+#          url: jdbc:mysql://barcoder.cluster-ro-cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder
+    url: jdbc:mariadb://barcoder.cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder?serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
+    username: merlin
+    password: merlinbarcoder
+    driver-class-name: org.mariadb.jdbc.Driver
     hikari:
       minimum-idle: 50
       maximumPoolSize: 200
