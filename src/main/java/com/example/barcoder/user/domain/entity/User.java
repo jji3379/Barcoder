@@ -43,15 +43,6 @@ public class User extends BaseEntity implements UserDetails {
     @Column(length = 20, name = "phone_number")
     private String phoneNumber;
 
-    @Column(nullable = false, name = "birth_date")
-    private LocalDate birthDate;
-
-    @Column(columnDefinition = "TEXT", name = "profile_image_uri")
-    private String profileImageUri;
-
-    @Column(length = 50)
-    private String intro;
-
     @Embedded
     private Terms terms;
 
@@ -98,10 +89,9 @@ public class User extends BaseEntity implements UserDetails {
     /*
     * 회원
     * */
-    public void updateUser(String profileImageUri, String username, String intro) {
-        this.profileImageUri = profileImageUri;
+    public void updateUser(String username, String email) {
         this.username = username;
-        this.intro = intro;
+        this.email = email;
     }
 
     /**

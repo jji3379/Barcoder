@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LoginUserReq {
 
-    private String countryCode;
-
     private String loginId;
 
     private String password;

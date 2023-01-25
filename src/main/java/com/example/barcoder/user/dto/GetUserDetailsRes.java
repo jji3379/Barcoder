@@ -16,16 +16,12 @@ public class GetUserDetailsRes {
 
     private String name;
 
-    private String intro;
-
-    private int followingNum;
-
-    private int followerNum;
+    private String phoneNumber;
 
     public GetUserDetailsRes(User user) {
         this.userId = user.getId();
         this.username = user.getUsername();
         this.name = user.getUsername();
-        this.intro = user.getIntro();
+        this.phoneNumber = user.getPhoneNumber();
     }
 }

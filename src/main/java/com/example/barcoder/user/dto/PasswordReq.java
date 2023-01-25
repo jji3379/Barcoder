@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PasswordReq {
-    private String countryCode;
     private String phoneNumber;
     private String password;
 }

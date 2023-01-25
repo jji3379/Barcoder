@@ -45,14 +45,6 @@ public class UserController {
     }
 
     /*
-     * 계정관리
-     * */
-    @GetMapping("/me")
-    public ResponseEntity<GetAccountDetails> getAccountDetails() {
-        return ResponseEntity.ok(userService.getAccountDetails());
-    }
-
-    /*
      * 프로필 수정
      * */
     @PutMapping("/me")

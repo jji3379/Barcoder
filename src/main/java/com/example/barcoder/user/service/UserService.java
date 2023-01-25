@@ -38,7 +38,7 @@ public class UserService {
                 });
 
         // 핸드폰 번호 중복 확인
-        String phoneNumber = registerUserReq.getCountryCode() + " " + registerUserReq.getPhoneNumber();
+        String phoneNumber = registerUserReq.getPhoneNumber();
         userRepository.findByPhoneNumber(phoneNumber)
                 .ifPresent(exists -> {
                     throw new CustomException(BaseCode.EXISTS_PHONE_NUMBER);
@@ -52,7 +52,6 @@ public class UserService {
                 .name(registerUserReq.getName())
                 .email(registerUserReq.getEmail())
                 .phoneNumber(phoneNumber)
-                .birthDate(registerUserReq.getBirthDate())
                 .terms(Terms.builder()
                         .termsOfService(registerUserReq.getTermsOfService())
                         .privacyPolicy(registerUserReq.getPrivacyPolicy())
@@ -67,7 +66,7 @@ public class UserService {
     }
 
     public LoginRes loginUser(LoginUserReq loginUserReq) {
-        User user = userRepository.findByUsernameOrPhoneNumber(loginUserReq.getLoginId(), loginUserReq.getCountryCode() + " " + loginUserReq.getLoginId())
+        User user = userRepository.findByUsername(loginUserReq.getLoginId())
                 .orElseThrow(() -> new CustomException(BaseCode.UNSIGN_USERNAME_OR_PHONE));
 
         if (!passwordEncoder.matches(loginUserReq.getPassword(), user.getPassword())) {
@@ -128,17 +127,7 @@ public class UserService {
         User user = userRepository.findByUsername(SecurityUtil.getCurrentUserName())
                 .orElseThrow(() -> new CustomException(BaseCode.UNSIGN_USERNAME_OR_PHONE));
 
-        user.updateUser(updateUserDetailsReq.getProfileImageUrl(), updateUserDetailsReq.getUserName(), updateUserDetailsReq.getIntro());
-    }
-
-    /*
-     * 계정관리
-     * */
-    public GetAccountDetails getAccountDetails() {
-        User user = userRepository.findByUsername(SecurityUtil.getCurrentUserName())
-                .orElseThrow(() -> new CustomException(BaseCode.UNSIGN_USERNAME_OR_PHONE));
-
-        return new GetAccountDetails(user);
+        user.updateUser( updateUserDetailsReq.getUserName(), updateUserDetailsReq.getEmail());
     }
 
     /**
@@ -146,7 +135,7 @@ public class UserService {
      */
     @Transactional
     public void newPassword(PasswordReq passwordReq) {
-        User user = userRepository.findByPhoneNumber(passwordReq.getCountryCode() + " " + passwordReq.getPhoneNumber())
+        User user = userRepository.findByPhoneNumber(passwordReq.getPhoneNumber())
                 .orElseThrow(() -> new CustomException(BaseCode.UNREGISTERD_PHONE_NUMBER));
 
         user.newPassword(passwordEncoder.encode(passwordReq.getPassword()));

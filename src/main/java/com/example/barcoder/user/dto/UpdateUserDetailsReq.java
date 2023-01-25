@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateUserDetailsReq {
 
-    private String profileImageUrl;
 
     private String userName;
 
-    private String intro;
+    private String email;
 }

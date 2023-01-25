@@ -28,12 +28,6 @@ public class RegisterUserReq {
     private String email;
 
     @NotNull
-    private LocalDate birthDate;
-
-    @NotNull
-    private String countryCode;
-
-    @NotNull
     private String phoneNumber;
 
     @NotNull
