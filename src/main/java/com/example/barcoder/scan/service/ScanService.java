@@ -38,12 +38,15 @@ public class ScanService {
 
         if (getItem.isPresent()) {
             Item item = getItem.get();
-
-            Scan save = scanRepository.save(ScanReq.toEntity(scanReq));
-
             item.incrScanCount();
 
-            return ScanRes.toRes(save, item.getMarketUrl());
+            if (scanReq.getUserId() == 0) {
+                return ScanRes.toMarketUrl(scanReq.getBarcodeNumber(), item.getMarketUrl());
+            } else {
+                Scan save = scanRepository.save(ScanReq.toEntity(scanReq));
+
+                return ScanRes.toRes(save, item.getMarketUrl());
+            }
         } else {
             return new char[0];
         }

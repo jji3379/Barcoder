@@ -1,6 +1,7 @@
 package com.example.barcoder.scan.dto;
 
 import com.example.barcoder.scan.domain.entity.Scan;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,8 +9,7 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
-@Builder
-@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ScanRes {
     private Long scanId;
     private String barcodeNumber;
@@ -17,6 +17,16 @@ public class ScanRes {
     private Long userId;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
+
+    @Builder
+    public ScanRes(Long scanId, String barcodeNumber, String marketUrl, Long userId, LocalDateTime createAt, LocalDateTime updateAt) {
+        this.scanId = scanId;
+        this.barcodeNumber = barcodeNumber;
+        this.marketUrl = marketUrl;
+        this.userId = userId;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+    }
 
     public static ScanRes toRes(Scan scan, String marketUrl) {
         return ScanRes.builder()
@@ -26,6 +36,13 @@ public class ScanRes {
                 .userId(scan.getUserId().getId())
                 .createAt(scan.getCreateAt())
                 .updateAt(scan.getUpdateAt())
+                .build();
+    }
+
+    public static ScanRes toMarketUrl(String barcodeNumber, String marketUrl) {
+        return ScanRes.builder()
+                .barcodeNumber(barcodeNumber)
+                .marketUrl(marketUrl)
                 .build();
     }
 }
