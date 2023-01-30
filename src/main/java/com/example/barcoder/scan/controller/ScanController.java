@@ -20,7 +20,7 @@ public class ScanController {
      * 스캔
      */
     @PostMapping("")
-    public ResponseEntity<ScanRes> saveScan(@RequestBody ScanReq scanReq) {
+    public ResponseEntity<Object> saveScan(@RequestBody ScanReq scanReq) {
 
         return ResponseEntity.ok(scanService.saveScan(scanReq));
     }

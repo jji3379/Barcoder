@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.barcoder.item.domain.entity.QItem.item;
 import static com.example.barcoder.scan.domain.entity.QScan.scan;
@@ -32,15 +33,21 @@ public class ScanService {
      * 스캔
      */
     @Transactional
-    public ScanRes saveScan(ScanReq scanReq) {
-        Item item = itemRepository.findByBarcodeNumber(scanReq.getBarcodeNumber())
-                .orElseThrow(() -> new CustomException(BaseCode.NOT_FOUNT_BARCODE));
+    public Object saveScan(ScanReq scanReq) {
+        Optional<Item> getItem = itemRepository.findByBarcodeNumber(scanReq.getBarcodeNumber());
 
-        Scan save = scanRepository.save(ScanReq.toEntity(scanReq));
+        if (getItem.isPresent()) {
+            Item item = getItem.get();
 
-        item.incrScanCount();
+            Scan save = scanRepository.save(ScanReq.toEntity(scanReq));
 
-        return ScanRes.toRes(save, item.getMarketUrl());
+            item.incrScanCount();
+
+            return ScanRes.toRes(save, item.getMarketUrl());
+        } else {
+            return "";
+        }
+
     }
 
     /**
