@@ -40,7 +40,7 @@ public class ScanService {
 
         item.incrScanCount();
 
-        return ScanRes.toRes(save);
+        return ScanRes.toRes(save, item.getMarketUrl());
     }
 
     /**

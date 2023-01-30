@@ -13,14 +13,16 @@ import java.time.LocalDateTime;
 public class ScanRes {
     private Long scanId;
     private String barcodeNumber;
+    private String marketUrl;
     private Long userId;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
-    public static ScanRes toRes(Scan scan) {
+    public static ScanRes toRes(Scan scan, String marketUrl) {
         return ScanRes.builder()
                 .scanId(scan.getId())
                 .barcodeNumber(scan.getBarcodeNumber())
+                .marketUrl(marketUrl)
                 .userId(scan.getUserId().getId())
                 .createAt(scan.getCreateAt())
                 .updateAt(scan.getUpdateAt())
