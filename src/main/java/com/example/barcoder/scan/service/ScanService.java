@@ -45,7 +45,7 @@ public class ScanService {
 
             return ScanRes.toRes(save, item.getMarketUrl());
         } else {
-            return "";
+            return new char[0];
         }
 
     }

@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/scans/")
+@RequestMapping("/api/v1/scans")
 public class ScanController {
     private final ScanService scanService;
 
