@@ -55,70 +55,70 @@ jobs:
           deployment_package: deploy/deploy.zip
           wait_for_environment_recovery: 300
 
-#      - name: slack success message
-#        uses: 8398a7/action-slack@v3
-#        if: success() # Pick up events even if the job fails or is canceled.
-#        with:
-#          status: custom
-#          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
-#          custom_payload: |
-#            {
-#              attachments: [{
-#                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-#                text: `
-#                      --------------------------------------------------------------------------------------- \n
-#                      ${process.env.AS_REPO} 저장소의 ${process.env.AS_WORKFLOW} 가 실행 됐습니다. \n
-#                      '${process.env.AS_REF}' 브런치에 대한 빌드 및 배포가 완료되었습니다. \n
-#                      message : ${process.env.AS_MESSAGE} ( ${process.env.AS_COMMIT} ) \n
-#                      workflow 최종 결과 : ${{ job.status }}
-#                      `,
-#              }]
-#            }
-#        env:
-#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#
-#
-#      - name: slack fail message
-#        uses: 8398a7/action-slack@v3
-#        if: failure() # Pick up events even if the job fails or is canceled.
-#        with:
-#          status: custom
-#          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
-#          custom_payload: |
-#            {
-#              attachments: [{
-#                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-#                text: `
-#                      --------------------------------------------------------------------------------------- \n
-#                      ${process.env.AS_REPO} 저장소의 ${process.env.AS_WORKFLOW} 가 실행 됐습니다. \n
-#                      '${process.env.AS_REF}' 브런치에 대한 빌드 및 배포가 실패했습니다. \n
-#                      message : ${process.env.AS_MESSAGE} ( ${process.env.AS_COMMIT} ) \n
-#                      workflow 최종 결과 : ${{ job.status }}
-#                      `,
-#              }]
-#            }
-#        env:
-#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#
-#      - name: slack cancel message
-#        uses: 8398a7/action-slack@v3
-#        if: cancelled() # Pick up events even if the job fails or is canceled.
-#        with:
-#          status: custom
-#          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
-#          custom_payload: |
-#            {
-#              attachments: [{
-#                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-#                text: `
-#                      --------------------------------------------------------------------------------------- \n
-#                      ${process.env.AS_REPO} 저장소의 ${process.env.AS_WORKFLOW} 가 실행 됐습니다. \n
-#                      '${process.env.AS_REF}' 브런치에 대한 빌드 및 배포가 사용자의 요청에 의해 취소 되었습니다. \n
-#                      '취소 시점에따라 서비스가 내려가있는채로 취소 될수 있으니 확인해 주세요 \n
-#                      message : ${process.env.AS_MESSAGE} ( ${process.env.AS_COMMIT} ) \n
-#                      workflow 최종 결과 : ${{ job.status }}
-#                      `,
-#              }]
-#            }
-#        env:
-#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: slack success message
+        uses: 8398a7/action-slack@v3
+        if: success() # Pick up events even if the job fails or is canceled.
+        with:
+          status: custom
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `
+                      --------------------------------------------------------------------------------------- \n
+                      ${process.env.AS_REPO} 저장소의 ${process.env.AS_WORKFLOW} 가 실행 됐습니다. \n
+                      '${process.env.AS_REF}' 브런치에 대한 빌드 및 배포가 완료되었습니다. \n
+                      message : ${process.env.AS_MESSAGE} ( ${process.env.AS_COMMIT} ) \n
+                      workflow 최종 결과 : ${{ job.status }}
+                      `,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+
+      - name: slack fail message
+        uses: 8398a7/action-slack@v3
+        if: failure() # Pick up events even if the job fails or is canceled.
+        with:
+          status: custom
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `
+                      --------------------------------------------------------------------------------------- \n
+                      ${process.env.AS_REPO} 저장소의 ${process.env.AS_WORKFLOW} 가 실행 됐습니다. \n
+                      '${process.env.AS_REF}' 브런치에 대한 빌드 및 배포가 실패했습니다. \n
+                      message : ${process.env.AS_MESSAGE} ( ${process.env.AS_COMMIT} ) \n
+                      workflow 최종 결과 : ${{ job.status }}
+                      `,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: slack cancel message
+        uses: 8398a7/action-slack@v3
+        if: cancelled() # Pick up events even if the job fails or is canceled.
+        with:
+          status: custom
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `
+                      --------------------------------------------------------------------------------------- \n
+                      ${process.env.AS_REPO} 저장소의 ${process.env.AS_WORKFLOW} 가 실행 됐습니다. \n
+                      '${process.env.AS_REF}' 브런치에 대한 빌드 및 배포가 사용자의 요청에 의해 취소 되었습니다. \n
+                      '취소 시점에따라 서비스가 내려가있는채로 취소 될수 있으니 확인해 주세요 \n
+                      message : ${process.env.AS_MESSAGE} ( ${process.env.AS_COMMIT} ) \n
+                      workflow 최종 결과 : ${{ job.status }}
+                      `,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
