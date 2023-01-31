@@ -39,9 +39,8 @@ public class ScanRes {
                 .build();
     }
 
-    public static ScanRes toMarketUrl(String barcodeNumber, String marketUrl) {
+    public static ScanRes toMarketUrl(String marketUrl) {
         return ScanRes.builder()
-                .barcodeNumber(barcodeNumber)
                 .marketUrl(marketUrl)
                 .build();
     }

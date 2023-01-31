@@ -14,6 +14,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +34,7 @@ public class ScanService {
      * 스캔
      */
     @Transactional
-    public Object saveScan(ScanReq scanReq) {
+    public String saveScan(ScanReq scanReq) {
         Optional<Item> getItem = itemRepository.findByBarcodeNumber(scanReq.getBarcodeNumber());
 
         if (getItem.isPresent()) {
@@ -41,14 +42,14 @@ public class ScanService {
             item.incrScanCount();
 
             if (scanReq.getUserId() == 0) {
-                return ScanRes.toMarketUrl(scanReq.getBarcodeNumber(), item.getMarketUrl());
+                return item.getMarketUrl();
             } else {
-                Scan save = scanRepository.save(ScanReq.toEntity(scanReq));
+                scanRepository.save(ScanReq.toEntity(scanReq));
 
-                return ScanRes.toRes(save, item.getMarketUrl());
+                return item.getMarketUrl();
             }
         } else {
-            return new char[0];
+            return "''";
         }
 
     }
