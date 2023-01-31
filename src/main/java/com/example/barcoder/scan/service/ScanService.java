@@ -49,7 +49,7 @@ public class ScanService {
                 return item.getMarketUrl();
             }
         } else {
-            return "''";
+            return "\"\"";
         }
 
     }
