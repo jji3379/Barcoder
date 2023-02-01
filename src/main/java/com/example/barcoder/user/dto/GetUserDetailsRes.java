@@ -14,6 +14,8 @@ public class GetUserDetailsRes {
 
     private String username;
 
+    private String email;
+
     private String name;
 
     private String phoneNumber;
@@ -23,5 +25,6 @@ public class GetUserDetailsRes {
         this.username = user.getUsername();
         this.name = user.getUsername();
         this.phoneNumber = user.getPhoneNumber();
+        this.email = user.getEmail();
     }
 }
