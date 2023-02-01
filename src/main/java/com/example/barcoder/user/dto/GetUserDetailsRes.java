@@ -23,7 +23,7 @@ public class GetUserDetailsRes {
     public GetUserDetailsRes(User user) {
         this.userId = user.getId();
         this.username = user.getUsername();
-        this.name = user.getUsername();
+        this.name = user.getName();
         this.phoneNumber = user.getPhoneNumber();
         this.email = user.getEmail();
     }
