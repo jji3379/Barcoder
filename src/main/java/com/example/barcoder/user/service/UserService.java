@@ -127,7 +127,7 @@ public class UserService {
         User user = userRepository.findByUsername(SecurityUtil.getCurrentUserName())
                 .orElseThrow(() -> new CustomException(BaseCode.UNSIGN_USERNAME_OR_PHONE));
 
-        user.updateUser( updateUserDetailsReq.getUserName(), updateUserDetailsReq.getEmail());
+        user.updateUser( updateUserDetailsReq.getName(), updateUserDetailsReq.getEmail());
     }
 
     /**

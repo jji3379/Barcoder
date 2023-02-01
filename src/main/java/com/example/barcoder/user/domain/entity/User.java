@@ -90,7 +90,7 @@ public class User extends BaseEntity implements UserDetails {
     * 회원
     * */
     public void updateUser(String username, String email) {
-        this.username = username;
+        this.name = name;
         this.email = email;
     }
 
