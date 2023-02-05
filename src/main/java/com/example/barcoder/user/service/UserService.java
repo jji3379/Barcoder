@@ -151,5 +151,13 @@ public class UserService {
 
         user.changeUsername(updateUserNameReq.getUsername());
     }
+
+    @Transactional
+    public void deleteUser() {
+        User user = userRepository.findByUsername(SecurityUtil.getCurrentUserName())
+                .orElseThrow(() -> new CustomException(BaseCode.UNSIGN_USERNAME_OR_PHONE));
+
+        userRepository.delete(user);
+    }
 }
 

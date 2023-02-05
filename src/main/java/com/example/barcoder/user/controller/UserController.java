@@ -54,6 +54,15 @@ public class UserController {
     }
 
     /*
+     * 회원 탈퇴
+     * */
+    @DeleteMapping("/me")
+    public ResponseEntity<String> deleteUser() {
+        userService.deleteUser();
+        return ResponseEntity.ok("");
+    }
+
+    /*
      * 아이디 변경
      * */
     @PutMapping("/username")
