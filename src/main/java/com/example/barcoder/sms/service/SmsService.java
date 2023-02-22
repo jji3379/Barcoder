@@ -57,7 +57,9 @@ public class SmsService {
                 .withStringValue("Transactional")
                 .withDataType("String"));
 
-        int authCode = generateAuth();
+        //int authCode = generateAuth();
+        // ios 심사용 
+        int authCode = 123456;
         String message = "[Barcoder] 인증번호 : " + authCode;
 
         snsClient.publish(new PublishRequest()
