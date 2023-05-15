@@ -6,16 +6,16 @@
     <property name="CONSOLE_LOG_PATTERN"
               value="${CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
-    <springProperty name="SLACK_WEBHOOK_URI" source="logging.slack.webhook-uri"/>
-    <appender name="SLACK" class="com.github.maricn.logback.SlackAppender">
-        <webhookUri>${SLACK_WEBHOOK_URI}</webhookUri>
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %msg %n</pattern>
-        </layout>
-        <username>Cake-Server-log</username>
-        <iconEmoji>:stuck_out_tongue_winking_eye:</iconEmoji>
-        <colorCoding>true</colorCoding>
-    </appender>
+<!--    <springProperty name="SLACK_WEBHOOK_URI" source="logging.slack.webhook-uri"/>-->
+<!--    <appender name="SLACK" class="com.github.maricn.logback.SlackAppender">-->
+<!--        <webhookUri>${SLACK_WEBHOOK_URI}</webhookUri>-->
+<!--        <layout class="ch.qos.logback.classic.PatternLayout">-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %msg %n</pattern>-->
+<!--        </layout>-->
+<!--        <username>Cake-Server-log</username>-->
+<!--        <iconEmoji>:stuck_out_tongue_winking_eye:</iconEmoji>-->
+<!--        <colorCoding>true</colorCoding>-->
+<!--    </appender>-->
 
     <!-- Consol appender 설정 -->
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
@@ -24,15 +24,15 @@
         </encoder>
     </appender>
 
-    <appender name="ASYNC_SLACK" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="SLACK"/>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>ERROR</level>
-        </filter>
-    </appender>
+<!--    <appender name="ASYNC_SLACK" class="ch.qos.logback.classic.AsyncAppender">-->
+<!--        <appender-ref ref="SLACK"/>-->
+<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--            <level>ERROR</level>-->
+<!--        </filter>-->
+<!--    </appender>-->
 
     <root level="INFO">
         <appender-ref ref="Console" />
-        <appender-ref ref="ASYNC_SLACK"/>
+<!--        <appender-ref ref="ASYNC_SLACK"/>-->
     </root>
 </configuration>
