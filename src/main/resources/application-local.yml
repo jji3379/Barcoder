@@ -1,0 +1,33 @@
+#local
+spring:
+  datasource:
+    url: jdbc:mariadb://barcoder.cr1hkgzkxsaj.ap-northeast-2.rds.amazonaws.com:3306/barcoder?serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
+    username: merlin
+    password: merlinbarcoder
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      minimum-idle: 50
+      maximumPoolSize: 200
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+server:
+  tomcat:
+    max-threads: 300
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA2O4HZN3WYBMMC4WZ
+      secret-key: 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
+      sms-access-key : AKIA2O4HZN3WZRLCCIZH
+      sms-secret-key : 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

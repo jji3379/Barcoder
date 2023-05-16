@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: local
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+jwt:
+  secret: 9cbb3605dd40d39e01f1d182b071a160b41c6a5fa4f1c0ef665821545435b28a0159bd6f446d45fe9d58732b93abc2ff73f152b1cfba04f3ecb5549206c79922
+
+logging:
+  slack:
+    webhook-uri: https://hooks.slack.com/services/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
+  config: classpath:logback-spring.xml
