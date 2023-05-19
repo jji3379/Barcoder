@@ -39,15 +39,14 @@
 
 ---
 ### 데모 사진
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/12abe9e3-b995-40bc-bae8-4a88566e46ad">
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/e9d8300e-6a48-4d24-adcc-24e13806e122">
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/941a9b22-1f54-42e1-a2f7-7c76f8cdc1a1">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/12abe9e3-b995-40bc-bae8-4a88566e46ad">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/e9d8300e-6a48-4d24-adcc-24e13806e122">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/53ded304-ff2a-4913-9bf4-6bd26c25ed20">
 
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/53ded304-ff2a-4913-9bf4-6bd26c25ed20">
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/0d624d36-81dc-4900-beec-f530f839d458">
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/6d761d53-10c1-4373-8b93-0bea96fbee35">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/0d624d36-81dc-4900-beec-f530f839d458">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/6d761d53-10c1-4373-8b93-0bea96fbee35">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/941a9b22-1f54-42e1-a2f7-7c76f8cdc1a1">
 
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/d942ec2d-7b16-46c6-88c1-76ec274a170a">
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/62c21f16-493b-4684-80bb-b2996ffda25a">
-<img width="250" src="https://github.com/jji3379/barcoder/assets/60234579/942450fb-1bbb-40d4-8707-263832004307">
-
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/942450fb-1bbb-40d4-8707-263832004307">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/d942ec2d-7b16-46c6-88c1-76ec274a170a">
+<img width="260" src="https://github.com/jji3379/barcoder/assets/60234579/62c21f16-493b-4684-80bb-b2996ffda25a">
