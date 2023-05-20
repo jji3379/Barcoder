@@ -7,6 +7,9 @@
 * 프론트엔드 1명
 * 백엔드 2명
 
+### 작업 기간
+2023.01.17~ 2023.02.21
+
 ### 협업 툴
 <img src="https://github.com/jji3379/barcoder/assets/60234579/17831f92-2cc9-4995-be8f-01e00811eda9" height="50px">
 <img src="https://github.com/jji3379/barcoder/assets/60234579/3f2bbf13-6cfe-47b4-9682-96281a59c7f2" height="50px">
