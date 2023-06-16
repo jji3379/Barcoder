@@ -1,8 +1,9 @@
-# Barcoder
+<h1><img style="margin-bottom:-10px" src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/62/14/d86214de-205c-a97d-5ab5-b845a686b999/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/460x0w.webp" height="40px">Barcoder</h1>
+
 > 바코드 기반 최저가 검색 서비스
 
 ### 출시된 어플리케이션
-* 앱스토어 : https://apps.apple.com/kr/app/%EB%B0%94%EC%BD%94%EB%8D%94-barcoder/id1667796829
+* 앱스토어 : [Barcoder](https://apps.apple.com/kr/app/%EB%B0%94%EC%BD%94%EB%8D%94-barcoder/id1667796829)
 * 테스트 계정 : testid
 * 테스트 비밀번호 : ssssss
 
