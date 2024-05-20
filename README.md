@@ -2,13 +2,6 @@
 
 > 바코드 기반 최저가 검색 서비스
 
-### 출시된 어플리케이션
-* 앱스토어 : [Barcoder](https://apps.apple.com/kr/app/%EB%B0%94%EC%BD%94%EB%8D%94-barcoder/id1667796829)
-* 테스트 계정 : testid
-* 테스트 비밀번호 : ssssss
-
-<img src="https://github.com/jji3379/Barcoder/assets/60234579/8ddc8c95-29ed-4844-be10-f9b4fd7c7551" height="200px">
-
 ### 참여 인원
 * 기획자 1명
 * 디자이너 1명
